@@ -24,6 +24,8 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 - There are more options in base_options.py for general options, train_options.py for training specific options, test_options for testing specific options 
 <br><br>
 
+## Pretrained model
+Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing) 
 ## How the code works: 
 ### Creating a dataset
 - Call CreateDataLoader in data/dataloader.py
@@ -36,5 +38,5 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 
 
 ## Acknowledgments
-This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
-This code borrows from [rewriting](https://github.com/davidbau/rewriting).
+- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
+- This code borrows from [rewriting](https://github.com/davidbau/rewriting).
