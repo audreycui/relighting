@@ -5,7 +5,7 @@ from torch.autograd import Variable
 from util.image_pool import ImagePool
 from .base_model import BaseModel
 from . import networks
-from pbw_utils import nethook
+from rewrite_utils import nethook
 
 class Pix2PixHDModel(BaseModel):
     def name(self):

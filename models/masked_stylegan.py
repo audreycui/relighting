@@ -1,7 +1,7 @@
 import torch
 import copy, contextlib
-from pbw_utils import nethook, pbar, zdataset, renormalize, smoothing
-from pbw_utils.stylegan2.models import DataBag
+from rewrite_utils import nethook, pbar, zdataset, renormalize, smoothing
+from rewrite_utils.stylegan2.models import DataBag
 from torchvision.transforms import Resize
 
 class ApplyMaskedStyle(torch.nn.Module):

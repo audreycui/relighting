@@ -13,11 +13,11 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir) 
 
-from pbw_utils import zdataset, show, labwidget, paintwidget, renormalize, nethook, imgviz, pbar, smoothing, imgviz
-from pbw_utils.stylegan2 import load_seq_stylegan
+from rewrite_utils import zdataset, show, labwidget, paintwidget, renormalize, nethook, imgviz, pbar, smoothing, imgviz
+from rewrite_utils.stylegan2 import load_seq_stylegan
 import copy, contextlib
-from pbw_utils.stylegan2.models import DataBag
-from pbw_utils.segmenter import load_segmenter
+from rewrite_utils.stylegan2.models import DataBag
+from rewrite_utils.segmenter import load_segmenter
 from importlib import reload
 
 from PIL import Image
