@@ -33,9 +33,10 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
  
 ## How the code works: 
 ### Creating a dataset
-- Call CreateDataLoader in data/dataloader.py
-- for generated datasets, StyleGANDataLoader in data/custom_dataset_data_loader.py calls appropriate dataset (decided by options flags)
-- A simple way to experiment is to define a new dataset in custom_data_loader and have StyleGANDataLoader to call that.
+- During training/testing, ```CreateDataLoader``` in ```data/dataloader.py``` is called. 
+- If ```--generated``` is false and a ```--dataroot``` is provided, an ```AlignedDataset``` (from original pix2pixHD code) is created for the folder of images. 
+- If ```--generated``` is true, a StyleGAN2 pretrained on LSUN bedrooms is loaded and ```StyleGANDataLoader``` in ```data/custom_dataset_data_loader.py``` calls appropriate dataset (decided by options flags). 
+
 
 ### pix2pix model
 - forward and inference functions are in model/pix2pixHD.py. 
