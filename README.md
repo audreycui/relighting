@@ -4,9 +4,8 @@
 
 ## Setting up the relight_env environment
 ```
-conda env create --file=environment.yml
+conda env create --file=religth_env.yml
 ```
-
 ## Running training/testing scripts
 ```
 python train.py --name [NAME] --netG modulated --batchSize 8 --max_dataset_size 2000 --no_instance --generated true --label_nc 0 --niter 200 --n_stylechannels [NUMCHANNELS] --use_location_map true
