@@ -25,7 +25,8 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 <br><br>
 
 ## Pretrained model
-Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing) 
+- Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing).
+ 
 ## How the code works: 
 ### Creating a dataset
 - Call CreateDataLoader in data/dataloader.py
