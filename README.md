@@ -21,7 +21,7 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 ```
 
 - ```--name```: name of the folder this model is saved to (or loaded from) <br>
-- ```--netG```: type of generator. ```modulated``` is our version for relighting. ```global``` is the default from the original paper. <br> 
+- ```--netG```: type of generator. ```modulated``` is our version for relighting. ```global``` is the default from the original pix2pixHD paper. <br> 
 - ```--no_instance```: include this flag if instance maps (see original pix2pixHD code) are not being used. During training of our user selective method, the mask is treated as an instance map and this flag is not used. In all other experiments, including our unsupervised method, this flag is used.  <br>
 - ```--generated```: include this flag if using a generated dataset. otherwise, --dataroot should be used to specify the path to the real images <br>
 - ```--n_stylechannels```: number of stylechannels that will be modulated. The layers/units of the stylechannels should be specified in custom_dataset_loader.py. <br>
