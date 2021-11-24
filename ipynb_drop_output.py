@@ -52,8 +52,6 @@ your notebooks are already under version control.
 Notes
 =====
 
-Changed by David Bau to make stripping output the default.
-
 This script is inspired by http://stackoverflow.com/a/20844506/827862, but
 lets the user specify whether the ouptut of a notebook should be kept
 in the notebook's metadata, and works for IPython v3.0.
