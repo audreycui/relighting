@@ -10,13 +10,13 @@ python train.py --name [NAME] --netG modulated --batchSize 8 --max_dataset_size 
 python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --label_nc 0 --dataroot datasets/lsun_bedrooms/ --which_epoch 40 --n_stylechannels 2
 ```
 
-- --name: name of the folder this model is saved to (or loaded from) <br>
-- --netG: type of generator. modulated is our version for relighting. global is the default from the original paper. <br> 
-- --no_instance: include this flag if instance maps (gets concatenated with input, pix2pix's way of conditioning) are not being used
-- --generated: include this flag if using a generated dataset. otherwise, --dataroot should be used to specify the path to the real images <br>
-- --n_stylechannels: number of stylechannels that will be modulated. The layers/units of the stylechannels should be specified in ```custom_dataset_loader.py```. <br>
-- --use_location_map: adds location of lamps as a feature map, which gets concatenated to the rest of the input. <br>
-- --dataroot: include path to data if using real data for training/testing. We don't need this for using generated data.
+- ```--name```: name of the folder this model is saved to (or loaded from) <br>
+- ```--netG```: type of generator. modulated is our version for relighting. global is the default from the original paper. <br> 
+- ```--no_instance```: include this flag if instance maps (gets concatenated with input, pix2pix's way of conditioning) are not being used
+- ```--generated```: include this flag if using a generated dataset. otherwise, --dataroot should be used to specify the path to the real images <br>
+- ```--n_stylechannels```: number of stylechannels that will be modulated. The layers/units of the stylechannels should be specified in custom_dataset_loader.py. <br>
+- ```--use_location_map```: adds location of lamps as a feature map, which gets concatenated to the rest of the input. <br>
+- ```--dataroot```: include path to data if using real data for training/testing. We don't need this for using generated data.
 - There are more options in base_options.py for general options, train_options.py for training specific options, test_options for testing specific options 
 <br><br>
 
