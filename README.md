@@ -8,6 +8,7 @@ conda env create --file=religth_env.yml
 ```
 ## Pretrained model
 - Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing).
+- Run ```make_model_dir.sh``` and place the model files from ```unsupervised``` into ```checkpoints/unsupervised``` and the files from ```selective``` into ```checkpoints/selective```.
 ## Interactive notebooks
 - ```unsupervised.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
 - ```user_selective.ipynb```: This notebook contains an interactive demo for our user selective method. Likewise, you may add your own test images.
@@ -41,6 +42,8 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 - networks defined in models/networks.py — this is where our ResNet modulation (ModulatedGenerator) is defined.
 
 
+
 ## Acknowledgments
-- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for overall pix2pix structure.
-- This code borrows util methods from [rewriting](https://github.com/davidbau/rewriting).
+- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
+- This code borrows from [rewriting](https://github.com/davidbau/rewriting).
+- We thank the authors of [StyleGAN2](https://github.com/rosinality/stylegan2-pytorch) and [Stylegan2 ADA](https://github.com/NVlabs/stylegan2-ada-pytorch), [encoder4editing](https://github.com/omertov/encoder4editing), and [LPIPS](https://github.com/richzhang/PerceptualSimilarity).
