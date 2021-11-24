@@ -1,6 +1,6 @@
 
 
-# Relighting: Modulated pix2pix
+# Local Relighting of Real Scenes
 
 ## Setting up the relight_env environment
 ```
