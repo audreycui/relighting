@@ -6,8 +6,10 @@
 ```
 conda env create --file=religth_env.yml
 ```
+## Pretrained model
+- Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing).
 ## Interactive notebooks
-- ```lamp_window_interactive.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
+- ```unsupervised.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
 - ```user_selective.ipynb```: This notebook contains an interactive demo for our user selective method. Likewise, you may add your own test images.
 ## Running training/testing scripts
 ```
@@ -27,8 +29,6 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 - There are more options in base_options.py for general options, train_options.py for training specific options, test_options for testing specific options 
 <br><br>
 
-## Pretrained model
-- Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing).
  
 ## How the code works: 
 ### Creating a dataset
@@ -42,5 +42,5 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 
 
 ## Acknowledgments
-- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
-- This code borrows from [rewriting](https://github.com/davidbau/rewriting).
+- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for overall pix2pix structure.
+- This code borrows util methods from [rewriting](https://github.com/davidbau/rewriting).
