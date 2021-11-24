@@ -43,5 +43,5 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 
 
 ## Acknowledgments
-- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
-- This code borrows from [rewriting](https://github.com/davidbau/rewriting).
+- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for overall pix2pix structure.
+- This code borrows util methods from [rewriting](https://github.com/davidbau/rewriting).
