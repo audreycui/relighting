@@ -44,6 +44,6 @@ python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --labe
 
 
 ## Acknowledgments
-- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/).
-- This code borrows from [rewriting](https://github.com/davidbau/rewriting).
+- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for its pix2pix architecture.
+- This code borrows from [rewriting](https://github.com/davidbau/rewriting) for its utility functions.
 - We thank the authors of [StyleGAN2](https://github.com/rosinality/stylegan2-pytorch) and [Stylegan2 ADA](https://github.com/NVlabs/stylegan2-ada-pytorch), [encoder4editing](https://github.com/omertov/encoder4editing), and [LPIPS](https://github.com/richzhang/PerceptualSimilarity).
