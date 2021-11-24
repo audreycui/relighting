@@ -6,8 +6,9 @@
 ```
 conda env create --file=religth_env.yml
 ```
+
 ## Interactive notebooks
-- ```lamp_window_interactive.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
+- ```unsupervised.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
 - ```user_selective.ipynb```: This notebook contains an interactive demo for our user selective method. Likewise, you may add your own test images.
 ## Running training/testing scripts
 ```
