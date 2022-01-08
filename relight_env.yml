@@ -21,7 +21,6 @@ dependencies:
   - jupyter
   - ftfy
   - regex
-  - nltk
   - cma
   - nodejs
   - pyyaml
@@ -32,3 +31,4 @@ dependencies:
   - pip:
      - torchray
      - lpips
+     - clean-fid
