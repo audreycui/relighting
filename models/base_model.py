@@ -1,6 +1,7 @@
 import os
 import torch
 import sys
+from torch.utils import model_zoo
 
 class BaseModel(torch.nn.Module):
     def name(self):
@@ -12,7 +13,8 @@ class BaseModel(torch.nn.Module):
         self.isTrain = opt.isTrain
         self.Tensor = torch.cuda.FloatTensor if self.gpu_ids else torch.Tensor
         self.save_dir = os.path.join(opt.checkpoints_dir, opt.name)
-
+        self.name = opt.name
+        
     def set_input(self, input):
         self.input = input
 
@@ -47,12 +49,30 @@ class BaseModel(torch.nn.Module):
             network.cuda()
 
     # helper loading function that can be used by subclasses
-    def load_network(self, network, network_label, epoch_label, save_dir=''):        
+    def load_network(self, network, network_label, epoch_label, save_dir=''):   
+        
         save_filename = '%s_net_%s.pth' % (epoch_label, network_label)
         print('save_filename', save_filename)
         if not save_dir:
             save_dir = self.save_dir
-        save_path = os.path.join(save_dir, save_filename)        
+        save_path = os.path.join(save_dir, save_filename)
+        
+        #load pretrained weights for models described in relighting paper from url 
+        if self.name in ["unsupervised", "selective"]:
+            print('save_dir', save_dir)
+            model_path = f'{save_dir}/net_{network_label}.pth'
+            if not os.path.isfile(model_path):
+                if not os.path.exists(save_dir):
+                    os.mkdir(save_dir) 
+                url = f'http://relighting.csail.mit.edu/weights/{self.name}/net_{network_label}.pth'
+                state_dict = model_zoo.load_url(url, model_dir=save_dir, progress=True)
+                torch.save(state_dict, model_path)
+            else:
+                state_dict = torch.load(model_path)
+            network.load_state_dict(state_dict)
+            return
+
+                        
         if not os.path.isfile(save_path):
             print('%s not exists yet!' % save_path)
             if network_label == 'G':
