@@ -4,12 +4,13 @@ channels:
   - ostrokach-forge
   - conda-forge
 dependencies:
-  - python=3.8
-  - cudatoolkit=10.2
-  - pytorch=1.8
+  - python=3.9
+  - cudatoolkit=11.3
+  - pytorch=1.10.1
   - cudnn
   - torchvision
   - mkl-include
+  - ninja
   - numpy
   - scipy
   - scikit-learn
