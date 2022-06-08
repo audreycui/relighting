@@ -26,16 +26,6 @@ visualizer = Visualizer(opt)
 dataroot = opt.dataroot.replace("/", "_")
 generated = 'generated' if opt.generated else f'real_{dataroot}'
 
-if opt.frac_one: 
-    fraction = 'ones'
-elif opt.frac_neg_one:
-    fraction = 'minus_ones'
-elif opt.linspace_on: 
-    fraction = 'linspace_on'
-elif opt.linspace_off: 
-    fraction = 'linspace_off'
-else: 
-    fraction = 'random'
 web_dir = os.path.join(opt.results_dir, opt.name, '%s_%s_%s_%s' % (opt.phase, opt.which_epoch, generated, fraction))
 print(web_dir)
 webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.which_epoch))
@@ -69,36 +59,19 @@ for i, data in enumerate(dataset):
                           opt.export_onnx, verbose=True)
         exit(0)
     minibatch = 1 
-    
-    #print("data shape", data['label'].shape)
-    #print('data label', data['label'][:, 0, :4, :4])
-         
+
                            
     if opt.engine:
         generated = run_trt_engine(opt.engine, minibatch, [data['label'], data['inst']])
     elif opt.onnx:
         generated = run_onnx(opt.onnx, opt.data_type, minibatch, [data['label'], data['inst']]) 
     elif not opt.generated: 
-        if opt.linspace_on or opt.linspace_off:
-            fracs = [0.5, 1, 1.5]
-            if opt.linspace_off: 
-                fracs = -fracs
-            visuals = [('input_image', util.tensor2im(data['label'][0]))]
-            for frac in fracs: 
-                generated = model.inference(data['label'], data['inst'], data['image'], amount=[frac])
-                visuals.append((f'output_image_{frac}', util.tensor2im(generated.data[0])))
-            visuals = OrderedDict(visuals)
-        else: 
-            frac = np.random.rand(opt.n_stylechannels)*2-1
-            if opt.frac_one: 
-                frac = [1]
-            elif opt.frac_neg_one: 
-                frac = [-1]
-            print('frac', frac)
-            generated = model.inference(data['label'], data['inst'], data['image'], amount=frac)
-            visuals = OrderedDict([('input_image', util.tensor2im(data['label'][0])),
-                                   ('output_image', util.tensor2im(generated.data[0])), 
-                                   ])
+        frac = np.random.rand(opt.n_stylechannels)*2-1
+        
+        generated = model.inference(data['label'], data['inst'], data['image'], amount=frac)
+        visuals = OrderedDict([('input_image', util.tensor2im(data['label'][0])),
+                               ('output_image', util.tensor2im(generated.data[0])), 
+                               ])
     else:  
         frac = data['frac']
         generated = model.inference(data['label'], data['inst'], data['image'], amount=frac)
@@ -106,8 +79,6 @@ for i, data in enumerate(dataset):
                                ('stylespace_target', util.tensor2im(data['image'][0])), 
                                ('output_image', util.tensor2im(generated.data[0])), 
                                ])
-    #print('processed', util.tensor2im(generated.data[0]))
-    #print('data label', generated.data[:, 0, :4, :4])
 
     img_path = data['path']
     print('process image... %s' % img_path)

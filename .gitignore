@@ -1,4 +1,6 @@
 debug*
+make_model_dir.sh
+.ipynb_checkpoints/
 checkpoints/
 results/
 build/

@@ -15,9 +15,4 @@ class TestOptions(BaseOptions):
         self.parser.add_argument("--engine", type=str, help="run serialized TRT engine")
         self.parser.add_argument("--onnx", type=str, help="run ONNX model via TRT") 
         self.parser.add_argument('--debug', action='store_true', help='use debugging z')
-        #self.parser.add_argument('--modulate_img_path', action='store_true', help='path to single image for modulation test')
-        self.parser.add_argument('--frac_one', type=bool, default=False, help='set frac to 1 by default')
-        self.parser.add_argument('--frac_neg_one', type=bool, default=False)
-        self.parser.add_argument('--linspace_on', type=bool, default=False)
-        self.parser.add_argument('--linspace_off', type=bool, default=False)
         self.isTrain = False
