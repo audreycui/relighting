@@ -51,4 +51,4 @@ python train.py --name [NAME] --netG modulated --batchSize 8 --max_dataset_size 
 - Our code borrows from [rewriting](https://github.com/davidbau/rewriting) for its utility functions.
 - We thank the authors of [StyleGAN2](https://github.com/rosinality/stylegan2-pytorch) and [Stylegan2 ADA](https://github.com/NVlabs/stylegan2-ada-pytorch), [encoder4editing](https://github.com/omertov/encoder4editing), and [LPIPS](https://github.com/richzhang/PerceptualSimilarity).
 - We thank Daksha Yadav for her insights, encouragement, and valuable discussions
-- We are grateful for the support of DARPA XAI (FA8750-18-C-0004), the Vannevar Bush Faculty Fellowship Program of the ONR (N00014-16-1-3116 to A.O.), and Signify Lighting Research.}
+- We are grateful for the support of DARPA XAI (FA8750-18-C-0004) and Signify Lighting Research.
