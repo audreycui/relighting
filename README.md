@@ -3,7 +3,13 @@
 # Local Relighting of Real Scenes
 Audrey Cui, Ali Jahanian, Agata Lapedriza, Antonio Torralba, Shahin Mahdizadehaghdam, Rohit Kumar, David Bau
 <br><br>
-Abstract: *We introduce the task of local relighting, which changes a photograph of a scene by switching on and off the light sources that are visible within the image. This new task differs from the traditional image relighting problem, as it introduces the challenge of detecting light sources and inferring the pattern of light that emanates from them. We propose an approach for local relighting that trains a model without supervision of any novel image dataset by using synthetically generated image pairs from another model.  Concretely, we collect paired training images from a stylespace-manipulated GAN; then we use these images to train a conditional image-to-image model. To benchmark local relighting, we introduce Lonoff, a collection of 306 precisely aligned images taken in indoor spaces with different combinations of lights switched on. We show that our method significantly outperforms baseline methods based on GAN inversion. Finally, we demonstrate extensions of our method that control different light sources separately. We invite the community to tackle this new task of local relighting.*
+![teaser image](https://github.com/ali-design/relight/blob/main/docs/teaser.jpg)
+
+Can we use deep generative models to edit real scenes “in the wild”? We introduce the task of local relighting, which changes a photograph of a scene by switching on and off the light sources that are visible within the image. This new task differs from the traditional image relighting problem, as it introduces the challenge of detecting light sources and inferring the pattern of light that emanates from them. 
+<br><br>
+We propose using a pretrained generator model to generatean unbounded dataset of paired images to train an image-to-image translation model to relight visible light sources in real scenes. In the examples above, the original photo is highlighted with a red border. We show that our unsupervised method is able to turn on light sources
+present in the training domain (i.e. lamps) in (a). Additionally, our method can detect and adjust prelit light sources that are way outside
+its training domain, such as fire fans (b), traffic lights (c), and road signs (d).
 
 ## Setting up the relight_env environment
 To run our scripts or notebooks, first create a conda environment by running the following: 
