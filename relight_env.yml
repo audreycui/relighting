@@ -27,6 +27,7 @@ dependencies:
   - mkl
   - tqdm
   - streamlit
+  - pillow
   - pip
   - pip:
      - torchray
