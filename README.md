@@ -1,49 +1,46 @@
 
 
 # Local Relighting of Real Scenes
+Audrey Cui, Ali Jahanian, Agata Lapedriza, Antonio Torralba, Shahin Mahdizadehaghdam, Rohit Kumar, David Bau
+<br><br>
+Abstract: *We introduce the task of local relighting, which changes a photograph of a scene by switching on and off the light sources that are visible within the image. This new task differs from the traditional image relighting problem, as it introduces the challenge of detecting light sources and inferring the pattern of light that emanates from them. We propose an approach for local relighting that trains a model without supervision of any novel image dataset by using synthetically generated image pairs from another model.  Concretely, we collect paired training images from a stylespace-manipulated GAN; then we use these images to train a conditional image-to-image model. To benchmark local relighting, we introduce Lonoff, a collection of 306 precisely aligned images taken in indoor spaces with different combinations of lights switched on. We show that our method significantly outperforms baseline methods based on GAN inversion. Finally, we demonstrate extensions of our method that control different light sources separately. We invite the community to tackle this new task of local relighting.*
 
 ## Setting up the relight_env environment
 ```
-conda env create --file=religth_env.yml
+conda env create --file=relight_env.yml
 ```
-## Pretrained model
-- Our pretrained model can be downloaded from Google Drive [here](https://drive.google.com/drive/folders/1jK52oEfoYcUI_CMw6_wt57Dii5unE502?usp=sharing).
-- Run ```make_model_dir.sh``` and place the model files from ```unsupervised``` into ```checkpoints/unsupervised``` and the files from ```selective``` into ```checkpoints/selective```.
+
+## Relighting Scripts
+To relight a folder of images using our unsupervised method, run
+
+```
+python test.py --name unsupervised --netG modulated --no_instance --input_nc 3 --label_nc 0 --dataroot [PATH/TO/DATA] --which_epoch 200 
+```
+
 ## Interactive notebooks
+
 - ```unsupervised.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
 - ```user_selective.ipynb```: This notebook contains an interactive demo for our user selective method. Likewise, you may add your own test images.
-## Running training/testing scripts
+
+
+## Training 
+To train our modified version of pix2pixHD, run
 ```
 python train.py --name [NAME] --netG modulated --batchSize 8 --max_dataset_size 2000 --no_instance --generated true --label_nc 0 --niter 200 --alternate_train true
-```
-```
-python test.py --name [NAME]  --netG modulated --no_instance --input_nc 3 --label_nc 0 --dataroot datasets/lsun_bedrooms/ --which_epoch 200 
-```
 
-- ```--name```: name of the folder this model is saved to (or loaded from) <br>
-- ```--netG```: type of generator. ```modulated``` is our version for relighting. ```global``` is the default from the original pix2pixHD paper. <br> 
-- ```--no_instance```: include this flag if instance maps (see original pix2pixHD code) are not being used. During training of our user selective method, the mask is treated as an instance map and this flag is not used. In all other experiments, including our unsupervised method, this flag is used.  <br>
-- ```--generated```: include this flag if using a generated dataset. otherwise, --dataroot should be used to specify the path to the real images <br>
-- ```--n_stylechannels```: number of stylechannels that will be modulated. The layers/units of the stylechannels should be specified in custom_dataset_loader.py. <br>
+```
+- ```--name```: Name of the folder this model is saved to (or loaded from) <br>
+- ```--netG```: Type of generator. ```modulated``` is our version for relighting. ```global``` is the default from the original pix2pixHD paper. <br> 
+- ```--no_instance```: Include this flag if instance maps (see original pix2pixHD code) are not being used. During training of our user selective method, the mask is treated as an instance map and this flag is not used. In all other experiments, including our unsupervised method, this flag is used.  <br>
+- ```--generated```: Include this flag if using a generated dataset. otherwise, --dataroot should be used to specify the path to the real images <br>
+- ```--alternate_train```: Reverses training sample with negated modulation during training, which results in improvements in turning off lights. See paper for more details. 
 - ```--dataroot```: include path to data if using real data for training/testing. We don't need this for using generated data.
-- There are more options in base_options.py for general options, train_options.py for training specific options, test_options for testing specific options 
-<br><br>
-
- 
-## How the code works: 
-### Creating a dataset
-- During training/testing, ```CreateDataLoader``` in ```data/dataloader.py``` is called. 
-- If ```--generated``` is false and a ```--dataroot``` is provided, an ```AlignedDataset``` (from original pix2pixHD code) is created for the folder of images. 
-- If ```--generated``` is true, a StyleGAN2 pretrained on LSUN bedrooms is loaded and ```StyleGANDataLoader``` in ```data/custom_dataset_data_loader.py``` calls appropriate dataset (decided by options flags). 
-
-
-### pix2pix model
-- forward and inference functions are in model/pix2pixHD.py. 
-- networks defined in models/networks.py — this is where our ResNet modulation (ModulatedGenerator) is defined.
-
+- See base_options.py for more general options, train_options.py for more training specific options
 
 
 ## Acknowledgments
-- This code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for its pix2pix architecture.
-- This code borrows from [rewriting](https://github.com/davidbau/rewriting) for its utility functions.
+- Our code borrows heavily from [pix2pixHD](https://tcwang0509.github.io/pix2pixHD/) for its pix2pix architecture.
+- Our code borrows from [rewriting](https://github.com/davidbau/rewriting) for its utility functions.
 - We thank the authors of [StyleGAN2](https://github.com/rosinality/stylegan2-pytorch) and [Stylegan2 ADA](https://github.com/NVlabs/stylegan2-ada-pytorch), [encoder4editing](https://github.com/omertov/encoder4editing), and [LPIPS](https://github.com/richzhang/PerceptualSimilarity).
+- We thank Daksha Yadav for her insights, encouragement, and valuable discussions
+- We are grateful for the support of DARPA XAI (FA8750-18-C-0004), the Vannevar Bush Faculty Fellowship Program of the ONR (N00014-16-1-3116 to A.O.), and Signify Lighting Research.}
