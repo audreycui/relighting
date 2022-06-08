@@ -4,7 +4,7 @@
 **Audrey Cui, Ali Jahanian, Agata Lapedriza, Antonio Torralba, Shahin Mahdizadehaghdam, Rohit Kumar, David Bau** <br>
 arxiv link coming soon!
 <br><br>
-![teaser image](https://github.com/ali-design/relight/blob/main/docs/teaser.jpg)
+![teaser image](https://github.com/audreycui/relight/blob/main/docs/teaser.jpg)
 
 Can we use deep generative models to edit real scenes “in the wild”? We introduce the task of local relighting, which changes a photograph of a scene by switching on and off the light sources that are visible within the image. This new task differs from the traditional image relighting problem, as it introduces the challenge of detecting light sources and inferring the pattern of light that emanates from them. 
 <br><br>
