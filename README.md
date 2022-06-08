@@ -1,7 +1,8 @@
 
 
 # Local Relighting of Real Scenes
-Audrey Cui, Ali Jahanian, Agata Lapedriza, Antonio Torralba, Shahin Mahdizadehaghdam, Rohit Kumar, David Bau
+**Audrey Cui, Ali Jahanian, Agata Lapedriza, Antonio Torralba, Shahin Mahdizadehaghdam, Rohit Kumar, David Bau** <br>
+arxiv link coming soon!
 <br><br>
 ![teaser image](https://github.com/ali-design/relight/blob/main/docs/teaser.jpg)
 
