@@ -27,9 +27,11 @@ python test.py --name unsupervised --netG modulated --no_instance --input_nc 3 -
 
 ## Interactive notebooks
 
-- ```unsupervised.ipynb```: This notebook contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
-- ```user_selective.ipynb```: This notebook contains an interactive demo for our user selective method. Likewise, you may add your own test images.
-
+- ```unsupervised.ipynb```: contains an interactive demo for our unsupervised method. Add your own test images to ```test_images``` and change the image path in the notebook to run our unsupervised method on your image. 
+- ```user_selective.ipynb```: contains an interactive demo for our user selective method. Likewise, you may add your own test images.
+- ```light_finder.ipynb``` demonstrates our method for identifying the light channel in StyleSpace
+- ```stylespace_decoupling.ipynb``` demonstrates step-by-step our method for creating a spatially masked style vector based on light source location
+- ```eval_metrics.ipynb``` contains the evaluation metrics reported in our paper. 
 
 ## Training 
 To train our modified version of pix2pixHD, run
