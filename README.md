@@ -54,3 +54,16 @@ python train.py --name [NAME] --netG modulated --batchSize 8 --max_dataset_size 
 - We thank the authors of [StyleGAN2](https://github.com/rosinality/stylegan2-pytorch) and [Stylegan2 ADA](https://github.com/NVlabs/stylegan2-ada-pytorch), [encoder4editing](https://github.com/omertov/encoder4editing), and [LPIPS](https://github.com/richzhang/PerceptualSimilarity).
 - We thank Daksha Yadav for her insights, encouragement, and valuable discussions
 - We are grateful for the support of DARPA XAI (FA8750-18-C-0004), the Spanish Ministry of Science, Innovation and Universities (RTI2018-095232-B-C22), and Signify Lighting Research.
+
+## Citation
+If you use this code for your research, please cite our [paper](https://arxiv.org/pdf/2207.02774.pdf). 
+
+```
+@article{Cui2022LocalRO,
+  title={Local Relighting of Real Scenes},
+  author={Audrey Cui and Ali Jahanian and {\`A}gata Lapedriza and Antonio Torralba and Shahin Mahdizadehaghdam and Rohit Kumar and David Bau},
+  journal={ArXiv},
+  year={2022},
+  volume={abs/2207.02774}
+}
+```
